@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сайт с кнопками</title>
+    <style>
+        body {
+            background-color: #333; /* Темно-серый фон */
+            color: #fff; /* Белый текст */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #main-container {
+            display: flex;
+        }
+
+        #container {
+            background-color: #2a2732; /* Чуть светлее серый фон для основного контейнера */
+            /*border: 1px solid #555;*/
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+			width: 250px; /* Установите ширину в пикселях или другую единицу измерения */
+            height: 540px; /* Установите высоту в пикселях или другую единицу измерения */
+            padding: 0; /* Удаляем внутренние отступы */
+            position: relative; /* Добавляем позицию "relative" для позиционирования кнопок */
+			margin-top: 0px; /* Поднимаем текст чуть выше */
+        }
+		
+		
+
+       #additional-container {
+           background-color: #2a2732; /* Цвет фон для дополнительного контейнера */
+           /*border: 1px solid #555;*/
+           padding: 20px;
+           border-radius: 10px;
+           display: flex;
+           flex-direction: column;
+           width: 500px; /* Установите ширину в пикселях или другую единицу измерения */
+           height: 500px; /* Установите высоту в пикселях или другую единицу измерения */
+		   margin-left: -15px; /* Сдвигаем текст влево */
+
+}
+
+
+    #additional-container3 {
+        background-color: #1f1c25; /* Более светлый серый фон для третьего дополнительного контейнера */
+        /*border: 1px solid #555;*/
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 480px; /* Установите ширину в пикселях или другую единицу измерения */
+        height: 450px; /* Установите высоту в пикселях или другую единицу измерения */
+        margin-left: -5px; /* Сдвигаем текст влево */
+		margin-top: 30px; /* Поднимаем текст чуть выше */
+    }
+	
+#additional-container4,	
+#additional-container5,
+#additional-container6,
+#additional-container7,
+#additional-container8 {
+    background-color: #1f1c25;
+    border-radius: 10px;
+    width: 480px;
+    height: 450px;
+    margin-left: -5px;
+    margin-top: 30px;
+    padding: 20px;
+    display: none;
+    overflow: auto;
+}
+
+/* Стили для полосы прокрутки внутри #additional-container5, #additional-container6, #additional-container7 и #additional-container8 */
+#additional-container4::-webkit-scrollbar,
+#additional-container5::-webkit-scrollbar,
+#additional-container6::-webkit-scrollbar,
+#additional-container7::-webkit-scrollbar,
+#additional-container8::-webkit-scrollbar {
+    width: 10px;
+}
+#additional-container4::-webkit-scrollbar-track,
+#additional-container5::-webkit-scrollbar-track,
+#additional-container6::-webkit-scrollbar-track,
+#additional-container7::-webkit-scrollbar-track,
+#additional-container8::-webkit-scrollbar-track {
+    background: #2a2732;
+}
+#additional-container4::-webkit-scrollbar-thumb,
+#additional-container5::-webkit-scrollbar-thumb,
+#additional-container6::-webkit-scrollbar-thumb,
+#additional-container7::-webkit-scrollbar-thumb,
+#additional-container8::-webkit-scrollbar-thumb {
+    background: #5972b6;
+    border-radius: 5px;
+}
+
+/* Изменение цвета полосы прокрутки в горизонтальном режиме для #additional-container5, #additional-container6, #additional-container7 и #additional-container8 */
+#additional-container4::-webkit-scrollbar-thumb:horizontal,
+#additional-container5::-webkit-scrollbar-thumb:horizontal,
+#additional-container6::-webkit-scrollbar-thumb:horizontal,
+#additional-container7::-webkit-scrollbar-thumb:horizontal,
+#additional-container8::-webkit-scrollbar-thumb:horizontal {
+    background: #088A85;
+}
+
+/* Изменение цвета полосы прокрутки в вертикальном режиме для #additional-container5, #additional-container6, #additional-container7 и #additional-container8 */
+#additional-container4::-webkit-scrollbar-thumb:vertical
+#additional-container5::-webkit-scrollbar-thumb:vertical,
+#additional-container6::-webkit-scrollbar-thumb:vertical,
+#additional-container7::-webkit-scrollbar-thumb:vertical,
+#additional-container8::-webkit-scrollbar-thumb:vertical {
+    background: #5972b6;
+}
+
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://cdn.discordapp.com/avatars/609619000787468289/40821c50c4f3fc0859a969afac3e1ef6.webp'); /* Подставьте свою ссылку на аватар */
+            background-size: cover;
+            background-position: center;
+            border-radius: 0; /* Делаем аватар квадратным */
+			margin-left: 30px; /* Сдвигаем текст влево */
+        }
+		
+
+        #user-info {
+            text-align: left; /* Сдвигаем текст влево */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+.button {
+    background-color: #2a2732;
+    color: #fff;
+    padding: 17px 55px;
+    margin: 10px 0px -9px 0px; /* Добавляем нижний отступ в 20px между кнопками */
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-weight: bold;
+}
+
+		
+		.spacer {
+           height: 80px; /* Размер отступа (высота) */
+        }
+		
+		.spacerava {
+           height: 25px; /* Размер отступа (высота) */
+        }
+
+		
+        .button:hover {
+            background-color: #888; /* Цвет кнопок при наведении */
+        }
+
+.button.active {
+    background-color: #5972b6 !important; /* Цвет кнопки при нажатии (голубой) */
+    color: #fff !important; /* Цвет текста на активной кнопке */
+}
+
+
+        #info {
+            text-align: right;
+        }
+
+        #info-content {
+            display: none;
+        }
+
+        #user-status {
+            margin-left: -160px; /* Сдвигаем текст влево */
+            margin-top: -15px; /* Поднимаем текст чуть выше */
+            color: #088A85; /* Голубой цвет текста "Бот" */
+            font-weight: bold; /* Делаем текст жирным */
+        }
+
+        #loki-status {
+            margin-left: -160px; /* Сдвигаем текст влево */
+            margin-top: 7px; /* Поднимаем текст чуть выше */
+            font-weight: bold; /* Делаем текст жирным */
+        }
+		
+
+        #icon {
+            width: 50px;
+            height: 20px;
+            background-color: #FFA500; /* Желтый фон */
+            color: #fff; /* Белый текст */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20%;
+            margin-left: 30px; /* Сдвигаем текст влево */
+            margin-top: -25px; /* Поднимаем текст чуть выше */
+        }
+		
+        #version-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        #version-container img {
+            width: 35px; /* Измените этот размер по вашему усмотрению */
+            height: auto; /* Высота будет автоматически рассчитана для поддержания соотношения сторон */
+            margin-left: 0px; /* Сдвигаем текст влево */
+            margin-top: -5px; /* Поднимаем текст чуть выше */
+        }
+
+        #version-text {
+           margin-left: 10px; /* Сдвигаем текст влево */
+           margin-top: 10px; /* Поднимаем текст чуть выше */
+        }
+		
+        #icon2 {
+            width: 250px;
+            height: 1px;
+            background-color: #5972b6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0;
+            margin-left: 0px; /* Сдвигаем текст влево */
+            margin-top: -10px; /* Поднимаем текст чуть выше */
+        }		
+		
+
+
+	
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <div id="container">
+<div id="version-container">
+    <img src="https://media.discordapp.net/attachments/1001434151993479279/1161910688894156860/1.png" alt="Мини-картинка">
+    <p id="version-text">Версия 1.0</p>
+</div>
+
+            <div id="header">
+                <div id="avatar"></div>
+                <div id="user-info">
+                    <h3 id="loki-status">lLoki</h3>
+                    <p id="user-status">Бот</p>
+                </div>
+            </div>
+            <div id="icon">VIP</div>
+<div class="button-container">
+<div class="spacerava"></div>
+<p id="icon2"></p>
+    <button class="button" id="vipButton" data-info="Информация о VIP будет здесь...">VIP</button>
+    <button class="button" id="playerButton" data-info="Информация о Player будет здесь...">Player</button>
+    <button class="button" id="moderButton" data-info="Информация о Moder будет здесь...">Moder</button>
+    <button class="button" id="rulesButton" data-info="Тут будут правила сайта...">Правила</button>
+
+    <div class="spacer"></div>
+
+    <button class="button" id="newButton" data-info="Новая информация...">ЖИЗА</button> <!-- Новая кнопка ниже -->
+</div>
+
+            <div id="info">
+                <div id="info-content"></div>
+            </div>
+        </div>
+        <div id="additional-container">
+            <!-- Здесь будет отображаться информация для выбранной кнопки -->
+            <div id="additional-container3">
+                <!-- Здесь будет отображаться информация для третьего дополнительного контейнера -->
+				1
+            </div>
+            <div id="additional-container4" style="display: none;">
+                <!-- Здесь будет отображаться информация для четвертого дополнительного контейнера -->
+				Вип 4</p>
+				2</p>
+				3</p>
+				4</p>
+				5</p>
+				6</p>
+				7</p>
+				8</p>
+				9</p>
+				10</p>
+				11</p>
+				12</p>
+				13</p>
+				14</p>
+				15</p>
+				16</p>
+				17</p>
+				18</p>
+				19</p>
+				20</p>
+				21</p>
+				22</p>
+				23</p>
+				24</p>
+				25</p>
+				26</p>
+				27</p>
+				28</p>
+				29</p>
+				30</p>
+				31</p>
+				32</p>
+				33</p>
+				34</p>
+				35</p>
+				36</p>
+				37</p>
+				38</p>
+				39</p>
+				40</p>
+				41</p>
+				42</p>
+            </div>
+			<div id="additional-container5" style="display: none;">
+          игрок 5
+		  				2</p>
+				3</p>
+				4</p>
+				5</p>
+				6</p>
+				7</p>
+				8</p>
+				9</p>
+				10</p>
+				11</p>
+				12</p>
+				13</p>
+				14</p>
+				15</p>
+				16</p>
+				17</p>
+				18</p>
+				19</p>
+				20</p>
+				21</p>
+				22</p>
+				23</p>
+				24</p>
+				25</p>
+				26</p>
+				27</p>
+         </div>
+
+         <div id="additional-container6" style="display: none;">
+    мод 6
+					2</p>
+				3</p>
+				4</p>
+				5</p>
+				6</p>
+				7</p>
+				8</p>
+				9</p>
+				10</p>
+				11</p>
+				12</p>
+				13</p>
+				14</p>
+				15</p>
+				16</p>
+				17</p>
+				18</p>
+				19</p>
+				20</p>
+				21</p>
+				22</p>
+				23</p>
+				24</p>
+				25</p>
+				26</p>
+				27</p>
+       </div>
+
+        <div id="additional-container7" style="display: none;">
+    правила 7
+					2</p>
+				3</p>
+				4</p>
+				5</p>
+				6</p>
+				7</p>
+				8</p>
+				9</p>
+				10</p>
+				11</p>
+				12</p>
+				13</p>
+				14</p>
+				15</p>
+				16</p>
+				17</p>
+				18</p>
+				19</p>
+				20</p>
+				21</p>
+				22</p>
+				23</p>
+				24</p>
+				25</p>
+				26</p>
+				27</p>
+      </div>
+
+      <div id="additional-container8" style="display: none;">
+    жиза 8
+					2</p>
+				3</p>
+				4</p>
+				5</p>
+				6</p>
+				7</p>
+				8</p>
+				9</p>
+				10</p>
+				11</p>
+				12</p>
+				13</p>
+				14</p>
+				15</p>
+				16</p>
+				17</p>
+				18</p>
+				19</p>
+				20</p>
+				21</p>
+				22</p>
+				23</p>
+				24</p>
+				25</p>
+				26</p>
+				27</p>
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+    <script>
+	
+const vipButton = document.getElementById('vipButton');//VIP
+const playerButton = document.getElementById('playerButton');//Player
+const moderButton = document.getElementById('moderButton');//Moder
+const newButton = document.getElementById('newButton');//ЖИЗА
+const rulesButton = document.getElementById('rulesButton');//Правила
+const additionalContainer = document.getElementById('additional-container');
+const additionalContainer3 = document.getElementById('additional-container3');
+const additionalContainer4 = document.getElementById('additional-container4');//VIP
+const additionalContainer5 = document.getElementById('additional-container5');//Player
+const additionalContainer6 = document.getElementById('additional-container6');//Moder
+const additionalContainer7 = document.getElementById('additional-container7');//Правила
+const additionalContainer8 = document.getElementById('additional-container8');//ЖИЗА
+const buttons = document.querySelectorAll('.button');
+
+// обработчик для кнопки vipButton VIP
+vipButton.addEventListener('click', () => {
+    buttons.forEach((btn) => {
+        btn.classList.remove('active');
+    });
+    vipButton.classList.add('active');
+    additionalContainer3.style.display = 'none';
+    additionalContainer4.style.display = 'block';
+	additionalContainer5.style.display = 'none';
+	additionalContainer6.style.display = 'none';
+    additionalContainer7.style.display = 'none';
+    additionalContainer8.style.display = 'none';
+    infoContent.textContent = vipButton.getAttribute('data-info');
+});
+
+// обработчик для кнопки playerButton Player
+playerButton.addEventListener('click', () => {
+    buttons.forEach((btn) => {
+        btn.classList.remove('active');
+    });
+    playerButton.classList.add('active');
+    additionalContainer3.style.display = 'none';
+    additionalContainer4.style.display = 'none';
+	additionalContainer5.style.display = 'block';
+	additionalContainer6.style.display = 'none';
+    additionalContainer7.style.display = 'none';
+    additionalContainer8.style.display = 'none';
+    infoContent.textContent = playerButton.getAttribute('data-info');
+});
+
+// обработчик для кнопки moderButton Moder
+moderButton.addEventListener('click', () => {
+    buttons.forEach((btn) => {
+        btn.classList.remove('active');
+    });
+    moderButton.classList.add('active');
+    additionalContainer3.style.display = 'none';
+    additionalContainer4.style.display = 'none';
+	additionalContainer5.style.display = 'none';
+	additionalContainer6.style.display = 'block';
+    additionalContainer7.style.display = 'none';
+    additionalContainer8.style.display = 'none';
+    infoContent.textContent = moderButton.getAttribute('data-info');
+});
+
+// Обработчик для кнопки rulesButton Правила
+rulesButton.addEventListener('click', () => {
+    buttons.forEach((btn) => {
+        btn.classList.remove('active');
+    });
+    rulesButton.classList.add('active');
+    additionalContainer3.style.display = 'none';
+    additionalContainer4.style.display = 'none';
+	additionalContainer5.style.display = 'none';
+	additionalContainer6.style.display = 'none';
+    additionalContainer7.style.display = 'block';
+    additionalContainer8.style.display = 'none';
+    infoContent.textContent = rulesButton.getAttribute('data-info');
+});
+
+// Обработчик для кнопки newButton ЖИЗА
+newButton.addEventListener('click', () => {
+    buttons.forEach((btn) => {
+        btn.classList.remove('active');
+    });
+    newButton.classList.add('active');
+    additionalContainer3.style.display = 'none';
+    additionalContainer4.style.display = 'none';
+    additionalContainer7.style.display = 'none';
+    additionalContainer8.style.display = 'block';
+    infoContent.textContent = newButton.getAttribute('data-info');
+});
+
+
+    </script>
+</body>
+</html>
+
+
